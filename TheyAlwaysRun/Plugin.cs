@@ -52,7 +52,8 @@ public class Plugin : BaseUnityPlugin
 
             foreach (var obj in Patches.OriginalPositions)
             {
-                obj.Key.transform.position = obj.Value;
+                //Log.LogWarning($"Resetting {obj.Key} to {obj.Value}");
+                GameObject.Find(obj.Key).transform.position = obj.Value;
             }
         });
 
