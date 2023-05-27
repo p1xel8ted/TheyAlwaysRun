@@ -10,6 +10,7 @@
 - Corrects scaling of UI elements when using a non 16:9 resolution. The menu is still 16:9 (on purpose).
 - Allows player to expand the UI or leave it at 16:9 position.
 - The main game UI (player hud, health, etc) can have it's scale adjusted.
+- Skip splash screens and the "press any key to start" screen.
 
 ## Installation
 - Grab the latest release of They Always Run Ultra-wide Fix from [here.](https://github.com/p1xel8ted/TheyAlwaysRun/releases)
