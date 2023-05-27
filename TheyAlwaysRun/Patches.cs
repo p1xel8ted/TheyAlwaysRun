@@ -10,14 +10,15 @@ namespace TheyAlwaysRun;
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public static class Patches
 {
-    internal static Dictionary<GameObject, Vector3> OriginalPositions { get; } = new();
+    internal static Dictionary<string, Vector3> OriginalPositions { get; } = new();
 
 
     [HarmonyPostfix]
     [HarmonyPatch(typeof(CurrencyUI), nameof(CurrencyUI.OnEnable))]
     private static void CurrencyUI_Init(ref CurrencyUI __instance)
     {
-        OriginalPositions.TryAdd(__instance.gameObject, __instance.transform.position);
+        var path = Util.GetFullPath(__instance.transform);
+        OriginalPositions.TryAdd(path, __instance.transform.position);
         Plugin.TopRightHud = __instance.gameObject;
     }
 
@@ -43,8 +44,9 @@ public static class Patches
     [HarmonyPatch(typeof(EnergyUI), nameof(EnergyUI.OnEnable))]
     private static void EnergyUI_OnEnable(ref EnergyUI __instance)
     {
-        if (!Util.GetFullPath(__instance.transform).Equals("UI/InGameUI/ThirdHandUI")) return;
-        OriginalPositions.TryAdd(__instance.gameObject, new Vector3(30, Display.main.systemHeight - 30, 0));
+        var path = Util.GetFullPath(__instance.transform);
+        if (!path.Equals("UI/InGameUI/ThirdHandUI")) return;
+        OriginalPositions.TryAdd(path, new Vector3(30, Display.main.systemHeight - 30, 0));
         Plugin.TopLeftHud = __instance.gameObject;
     }
 
@@ -53,7 +55,8 @@ public static class Patches
     [HarmonyPatch(typeof(PlayerUI), nameof(PlayerUI.Init))]
     private static void PlayerUI_Init(ref PlayerUI __instance)
     {
-        OriginalPositions.TryAdd(__instance.gameObject, __instance.transform.position);
+        var path = Util.GetFullPath(__instance.transform);
+        OriginalPositions.TryAdd(path, __instance.transform.position);
         Plugin.BottomLeftHud = __instance.gameObject;
     }
 
