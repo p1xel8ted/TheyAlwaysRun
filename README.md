@@ -12,6 +12,10 @@
 - The main game UI (player hud, health, etc) can have it's scale adjusted.
 - Skip splash screens and the "press any key to start" screen.
 
+## Preview
+
+![GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmQxNjUwZWQyNGM4NjVlZWRiOGI4M2JmNDI5YWE0YzliZTVlMTc2OSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/cDuntczY5mbxkGWOaS/giphy.gif)<br>
+
 ## Installation
 - Grab the latest release of They Always Run Ultra-wide Fix from [here.](https://github.com/p1xel8ted/TheyAlwaysRun/releases)
 - Extract the contents of the release zip in to the game directory.<br />(e.g. "**steamapps\common\They Always Run**" for Steam).
